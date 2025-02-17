@@ -1,5 +1,14 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
     width: 65%;
     margin: 0 auto;
     margin-top: -1.7rem;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
