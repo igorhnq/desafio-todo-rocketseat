@@ -22,23 +22,3 @@ form {
 .input:focus {
     outline: 1px solid var(--purple-dark);
 }
-
-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    gap: 0.5rem;
-    background-color: var(--blue-dark);
-    border: 0;
-    outline: none;
-    color: var(--gray-100);
-    border-radius: 8px;
-    font-weight: bolder;
-    transition: 0.1s;
-}
-
-button:hover {
-    background-color: var(--blue);
-}
