@@ -1,4 +1,5 @@
-import { PlusCircle } from '@phosphor-icons/react'
+import { Button } from './Button'
+
 import styles from './Input.module.css'
 
 export function Input() {
@@ -10,10 +11,7 @@ export function Input() {
                 placeholder='Adicione uma nova tarefa'
             />
             
-            <button>
-                Criar
-                <PlusCircle size={20} />
-            </button>
+            <Button />
         </form>
     )
 }
