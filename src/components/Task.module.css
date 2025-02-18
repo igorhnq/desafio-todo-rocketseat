@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    margin-bottom: 0.75rem;
 
     background-color: var(--gray-500);
     border-radius: 8px;
