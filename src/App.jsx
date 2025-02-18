@@ -1,10 +1,12 @@
 import { Header } from './components/Header'
 import { Input } from './components/Input'
+import { Task } from './components/Task'
+
+import clipboardIcon from './assets/clipboard-icon.svg'
 
 import styles from './App.module.css'
 
 import './global.css'
-import { Task } from './components/Task'
 
 export function App() {
     return (
@@ -13,18 +15,24 @@ export function App() {
             <div className={styles.wrapper}>
                 <Input />
                 <div className={styles.header}>
-                    <div>
+                    <div className={styles.leftHeader}>
                         <h2>Tarefas criadas</h2>
-                        <p>5</p>
+                        <p className={styles.tasksNumber}>5</p>
                     </div>
-
-                    <div>
+                    <div className={styles.rightHeader}>
                         <h2>Concluídas</h2>
-                        <p>2 de 5</p>
-                        <p>5</p>
+                        <p className={styles.tasksNumber}>2 de 5</p>
                     </div>
                 </div>
-                <Task />
+                <div className={styles.taskWrapper}>
+                    <div className={styles.noTasksContainer}>
+                        <div className={styles.noTasksContainerContent}>
+                            <img src={clipboardIcon} />
+                            <h2>Você ainda não tem tarefas cadastradas</h2>
+                            <p>Crie tarefas e organize seus itens a fazer</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
