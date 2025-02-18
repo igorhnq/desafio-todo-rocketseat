@@ -8,6 +8,8 @@ import styles from './App.module.css'
 
 import './global.css'
 
+const tasks = []
+
 export function App() {
     return (
         <div>
@@ -24,15 +26,23 @@ export function App() {
                         <p className={styles.tasksNumber}>2 de 5</p>
                     </div>
                 </div>
-                <div className={styles.taskWrapper}>
-                    <div className={styles.noTasksContainer}>
-                        <div className={styles.noTasksContainerContent}>
-                            <img src={clipboardIcon} />
-                            <h2>Você ainda não tem tarefas cadastradas</h2>
-                            <p>Crie tarefas e organize seus itens a fazer</p>
+                {tasks.length === 0 ? (
+                    <div className={styles.taskWrapper}>
+                        <div className={styles.noTasksContainer}>
+                            <div className={styles.noTasksContainerContent}>
+                                <img src={clipboardIcon} />
+                                <h2>Você ainda não tem tarefas cadastradas</h2>
+                                <p>Crie tarefas e organize seus itens a fazer</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                ) : (
+                    <div className={styles.taskWrapper}>
+                        {tasks.map((task) => (
+                            <Task />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     )
