@@ -2,7 +2,7 @@ import { Trash } from "@phosphor-icons/react";
 
 import styles from './Task.module.css'
 
-export function Task() {
+export function Task({ task }) {
     return (
         <div className={styles.taskWrapper}>
             <div>
@@ -10,7 +10,7 @@ export function Task() {
                     className={styles.checkbox}
                     type="checkbox"
                 />
-                <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
+                <p>{task.text}</p>
             </div>
 
             <button className={styles.button}>

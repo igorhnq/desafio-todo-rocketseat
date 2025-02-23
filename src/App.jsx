@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Header } from './components/Header'
 import { Input } from './components/Input'
 import { Task } from './components/Task'
@@ -8,14 +9,24 @@ import styles from './App.module.css'
 
 import './global.css'
 
-const tasks = []
-
 export function App() {
+    const [tasks, setTasks] = useState([])
+
+    function handleAddTask(newTaskText) {
+        const newTask = {
+            id: new Date().getTime(),
+            text: newTaskText,
+            isCompleted: false,
+        }
+
+        setTasks([...tasks, newTask])
+    }
+
     return (
         <div>
             <Header />
             <div className={styles.wrapper}>
-                <Input />
+                <Input onAddTask={handleAddTask} />
                 <div className={styles.header}>
                     <div className={styles.leftHeader}>
                         <h2>Tarefas criadas</h2>
@@ -39,7 +50,10 @@ export function App() {
                 ) : (
                     <div className={styles.taskWrapper}>
                         {tasks.map((task) => (
-                            <Task />
+                            <Task 
+                                key={task.id}
+                                task={task}
+                            />
                         ))}
                     </div>
                 )}
