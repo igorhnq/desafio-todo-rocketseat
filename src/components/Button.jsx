@@ -2,9 +2,9 @@ import { PlusCircle } from '@phosphor-icons/react'
 
 import styles from './Button.module.css'
 
-export function Button() {
+export function Button({ disabled }) {
     return (
-        <button className={styles.button}>
+        <button disabled={disabled} className={styles.button}>
             Criar
             <PlusCircle size={20} />
         </button>

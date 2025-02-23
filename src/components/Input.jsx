@@ -24,9 +24,10 @@ export function Input({ onAddTask }) {
                 type="text" 
                 placeholder='Adicione uma nova tarefa'
                 onChange={handleNewTaskTextChange}
+                value={newTaskText}
             />
             
-            <Button />
+            <Button disabled={newTaskText.length === 0} />
         </form>
     )
 }
