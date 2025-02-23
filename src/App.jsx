@@ -22,6 +22,11 @@ export function App() {
         setTasks([...tasks, newTask])
     }
 
+    function handleDeleteTask(taskId) {
+        const tasksWithoutDeletedOne = tasks.filter(task => task.id !== taskId)
+        setTasks(tasksWithoutDeletedOne)
+    }
+
     return (
         <div>
             <Header />
@@ -53,6 +58,7 @@ export function App() {
                             <Task 
                                 key={task.id}
                                 task={task}
+                                onDeleteTask={handleDeleteTask}
                             />
                         ))}
                     </div>
