@@ -22,6 +22,16 @@ export function App() {
         setTasks([...tasks, newTask])
     }
 
+    function handleToggleTaskCompletion(taskId) {
+        const updatedCompletedTasks = tasks.map(task => 
+            task.id === taskId 
+                ? { ...task, isCompleted: !task.isCompleted } 
+                : task
+        );
+        setTasks(updatedCompletedTasks);
+    }
+    
+
     function handleDeleteTask(taskId) {
         const tasksWithoutDeletedOne = tasks.filter(task => task.id !== taskId)
         setTasks(tasksWithoutDeletedOne)
@@ -59,6 +69,7 @@ export function App() {
                                 key={task.id}
                                 task={task}
                                 onDeleteTask={handleDeleteTask}
+                                onToggleTaskCompletion={handleToggleTaskCompletion}
                             />
                         ))}
                     </div>

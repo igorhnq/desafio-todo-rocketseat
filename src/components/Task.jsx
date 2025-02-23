@@ -2,9 +2,13 @@ import { Trash } from "@phosphor-icons/react";
 
 import styles from './Task.module.css'
 
-export function Task({ task, onDeleteTask }) {
+export function Task({ task, onDeleteTask, onToggleTaskCompletion }) {
     function handleDeleteTask() {
         onDeleteTask(task.id)
+    }
+
+    function handleToggleChange() {
+        onToggleTaskCompletion(task.id)
     }
 
     return (
@@ -13,8 +17,12 @@ export function Task({ task, onDeleteTask }) {
                 <input
                     className={styles.checkbox}
                     type="checkbox"
+                    checked={task.isCompleted}
+                    onChange={handleToggleChange}
                 />
-                <p>{task.text}</p>
+                <p className={task.isCompleted ? styles.taskCompleted : ''}>
+                    {task.text}
+                </p>
             </div>
 
             <button className={styles.button} onClick={handleDeleteTask}>
