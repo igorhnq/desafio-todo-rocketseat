@@ -47,9 +47,47 @@ p {
     cursor: pointer;
 }
 
-
 .taskCompleted {
     text-decoration: line-through;
     color: var(--gray-300);
     font-weight: 300;
+}
+
+.customCheckbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.customCheckbox input {
+    display: none; 
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customCheckbox:hover .checkmark {
+    background-color: var(--blue-dark)
+}
+
+.customCheckbox input:checked + .checkmark {
+    background-color: var(--purple-dark);
+    border: none;
+}
+
+.customCheckbox input:checked + .checkmark::after {
+    content: '✔';
+    font-size: 12px;
+    color: var(--gray-100);
+}
+
+.customCheckbox input:checked:hover + .checkmark {
+    background-color: var(--purple); 
 }
