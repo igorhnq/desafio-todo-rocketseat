@@ -14,12 +14,15 @@ export function Task({ task, onDeleteTask, onToggleTaskCompletion }) {
     return (
         <div className={styles.taskWrapper}>
             <div>
-                <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    checked={task.isCompleted}
-                    onChange={handleToggleChange}
-                />
+                <label className={styles.customCheckbox}>
+                    <input
+                        className={styles.checkbox}
+                        type="checkbox"
+                        checked={task.isCompleted}
+                        onChange={handleToggleChange}
+                    />
+                    <span className={styles.checkmark}></span>
+                </label>
                 <p className={task.isCompleted ? styles.taskCompleted : ''}>
                     {task.text}
                 </p>
