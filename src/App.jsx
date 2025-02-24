@@ -31,7 +31,6 @@ export function App() {
         setTasks(updatedCompletedTasks);
     }
     
-
     function handleDeleteTask(taskId) {
         const tasksWithoutDeletedOne = tasks.filter(task => task.id !== taskId)
         setTasks(tasksWithoutDeletedOne)
@@ -45,11 +44,15 @@ export function App() {
                 <div className={styles.header}>
                     <div className={styles.leftHeader}>
                         <h2>Tarefas criadas</h2>
-                        <p className={styles.tasksNumber}>5</p>
+                        <p className={styles.tasksNumber}>
+                            {tasks.length}
+                        </p>
                     </div>
                     <div className={styles.rightHeader}>
                         <h2>Concluídas</h2>
-                        <p className={styles.tasksNumber}>2 de 5</p>
+                        <p className={styles.tasksNumber}>
+                            {tasks.filter(task => task.isCompleted).length} de {tasks.length}
+                        </p>
                     </div>
                 </div>
                 {tasks.length === 0 ? (
