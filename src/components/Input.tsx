@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import { Button } from './Button'
+import { InputProps } from '../types'
 
 import styles from './Input.module.css'
 
-export function Input({ onAddTask }) {
+export function Input({ onAddTask }: InputProps) {
     const [newTaskText, setNewTaskText] = useState('')
 
-    function handleNewTaskTextChange(event) {
+    function handleNewTaskTextChange(event: ChangeEvent<HTMLInputElement>) {
         setNewTaskText(event.target.value)
     }
 
-    function handleNewTaskSubmit(event) {
+    function handleNewTaskSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
         onAddTask(newTaskText)

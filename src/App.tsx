@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Header } from './components/Header'
 import { Input } from './components/Input'
 import { Task } from './components/Task'
+import { Task as TaskType } from './types'
 
 import clipboardIcon from './assets/clipboard-icon.svg'
 
@@ -10,10 +11,10 @@ import styles from './App.module.css'
 import './global.css'
 
 export function App() {
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState<TaskType[]>([])
 
-    function handleAddTask(newTaskText) {
-        const newTask = {
+    function handleAddTask(newTaskText: string) {
+        const newTask: TaskType = {
             id: new Date().getTime(),
             text: newTaskText,
             isCompleted: false,
@@ -22,7 +23,7 @@ export function App() {
         setTasks([...tasks, newTask])
     }
 
-    function handleToggleTaskCompletion(taskId) {
+    function handleToggleTaskCompletion(taskId: number) {
         const updatedCompletedTasks = tasks.map(task => 
             task.id === taskId 
                 ? { ...task, isCompleted: !task.isCompleted } 
@@ -31,7 +32,7 @@ export function App() {
         setTasks(updatedCompletedTasks);
     }
     
-    function handleDeleteTask(taskId) {
+    function handleDeleteTask(taskId: number) {
         const tasksWithoutDeletedOne = tasks.filter(task => task.id !== taskId)
         setTasks(tasksWithoutDeletedOne)
     }
@@ -59,7 +60,7 @@ export function App() {
                     <div className={styles.taskWrapper}>
                         <div className={styles.noTasksContainer}>
                             <div className={styles.noTasksContainerContent}>
-                                <img src={clipboardIcon} />
+                                <img src={clipboardIcon} alt="Clipboard icon" />
                                 <h2>Você ainda não tem tarefas cadastradas</h2>
                                 <p>Crie tarefas e organize seus itens a fazer</p>
                             </div>

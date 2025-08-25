@@ -1,8 +1,9 @@
 import { Trash } from "@phosphor-icons/react";
+import { TaskProps } from '../types'
 
 import styles from './Task.module.css'
 
-export function Task({ task, onDeleteTask, onToggleTaskCompletion }) {
+export function Task({ task, onDeleteTask, onToggleTaskCompletion }: TaskProps) {
     function handleDeleteTask() {
         onDeleteTask(task.id)
     }
